@@ -7,8 +7,9 @@ The implemenation of the class database.
 
 int main (void){
   welcome();
-  fillStudentArray(askClassSize());
-  //printClassStats();
+  classSize = askClassSize();
+  fillStudentArray(classSize);
+  printClassStats();
   return 0;
 };
 
@@ -28,6 +29,7 @@ int askClassSize(void){
   printf("How many students are in this class? \n");
   printf("Enter the number of students \n");
   scanf("%d", &classNumber);
+  printf("\n");
   flush_stdin();
   return classNumber;
 };
@@ -39,17 +41,17 @@ void fillStudentArray(int classSize){
     strcpy(myClass[j].name, askStudentName());
     myClass[j].ID = askStudentID();
     myClass[j].grade = askStudentGrade();
+    printf("\n");
   }
 };
 
 char* askStudentName(void){
-  char name[16];
+  char* name;
   printf("Enter the student's name: \n");
   scanf("%s", name);
   flush_stdin();
-  return &name;
+  return name;
 };
-
 
 int askStudentID(void){
   int ID;
@@ -60,13 +62,6 @@ int askStudentID(void){
 };
 char askStudentGrade(void){
   char grade;
-  /* while (grade != 'A' ||
-	 grade != 'B' ||
-	 grade != 'C' ||
-	 grade != 'D' ||
-	 grade != 'F'){
-
-	 }*/
 
   printf("Enter the student's grade: \n");
   scanf("%c", &grade);
@@ -88,6 +83,10 @@ char askStudentGrade(void){
   case 'F':
     numberFs++;
     break;
+  default:
+    printf("Not a real grade try again");
+    askStudentGrade();
+    break;
   }
 
   return grade;
@@ -98,10 +97,12 @@ void printClassStats(void){
 
   int i;
   for(i= 0 ; i < classSize ; i++){
-    printf("Name %s \n", myClass[i].name);
-    printf("ID %d \n", myClass[i].ID);
-    printf("Grade %c \n", myClass[i].grade);
+    printf("\n");
+    printf("%s \n", myClass[i].name);
+    printf("ID: %d \n", myClass[i].ID);
+    printf("Grade: %c \n", myClass[i].grade);
   }
+  printf("\n");
   printf("Number of As: %d \n", numberAs);
   printf("Number of Bs: %d \n", numberBs);
   printf("Number of Cs: %d \n", numberCs);
