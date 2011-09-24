@@ -38,19 +38,17 @@ void fillStudentArray(int classSize){
   myClass = (struct student*) calloc(classSize, sizeof(struct student));
   int j;
   for(j=0 ; j < classSize; j++){
-    strcpy(myClass[j].name, askStudentName());
+    askStudentName(myClass[j].name);
     myClass[j].ID = askStudentID();
     myClass[j].grade = askStudentGrade();
     printf("\n");
   }
 };
 
-char* askStudentName(void){
-  char* name;
+void askStudentName(char* name){
   printf("Enter the student's name: \n");
   scanf("%s", name);
   flush_stdin();
-  return name;
 };
 
 int askStudentID(void){
@@ -85,7 +83,8 @@ char askStudentGrade(void){
     break;
   default:
     printf("Not a real grade try again");
-    askStudentGrade();
+    printf("\n");
+    grade = askStudentGrade();
     break;
   }
 

@@ -50,7 +50,7 @@ int askClassSize(void);
 
 //Gets the information for each Student
 void fillStudentArray(int classSize);
-char* askStudentName(void);
+void askStudentName(char* name);
 char askStudentGrade(void);
 int askStudentID(void);
 
