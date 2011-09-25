@@ -7,8 +7,11 @@ The implemenation of the class database.
 // Runs through filling the class "database" with information
 int main (void){
   welcome();
-  while(classSize != 0){
+  while(classSize){
     classSize = askClassSize();
+    if (classSize == 0){
+      return 0;
+    }
     fillStudentArray(classSize);
     printClassStats();
     free(myClass);
@@ -111,6 +114,15 @@ void printClassStats(void){
   printf("Number of Cs: %d \n", numberCs);
   printf("Number of Ds: %d \n", numberDs);
   printf("Number of Fs: %d \n", numberFs);
+  resetGrades();
   printf("\n");
 
+};
+
+void resetGrades(void){
+  numberAs = 0;
+  numberBs = 0;
+  numberCs = 0;
+  numberDs = 0;
+  numberFs = 0;
 };

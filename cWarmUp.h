@@ -70,5 +70,7 @@ int askStudentID(void);
 // then class statistics on grades
 void printClassStats(void);
 
+void resetGrades(void);
+
 // Cleans up user input after scanf runs
 void flush_stdin();
