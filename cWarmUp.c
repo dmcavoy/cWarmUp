@@ -4,12 +4,15 @@ The implemenation of the class database.
 
 #include "cWarmUp.h"
 
-
+// Runs through filling the class "database" with information
 int main (void){
   welcome();
-  classSize = askClassSize();
-  fillStudentArray(classSize);
-  printClassStats();
+  while(classSize != 0){
+    classSize = askClassSize();
+    fillStudentArray(classSize);
+    printClassStats();
+    free(myClass);
+  }
   return 0;
 };
 
@@ -27,7 +30,7 @@ void flush_stdin() {
 int askClassSize(void){
   int classNumber;
   printf("How many students are in this class? \n");
-  printf("Enter the number of students \n");
+  printf("Enter the number of students: ");
   scanf("%d", &classNumber);
   printf("\n");
   flush_stdin();
@@ -46,14 +49,14 @@ void fillStudentArray(int classSize){
 };
 
 void askStudentName(char* name){
-  printf("Enter the student's name: \n");
+  printf("Enter the student's name: ");
   scanf("%s", name);
   flush_stdin();
 };
 
 int askStudentID(void){
   int ID;
-  printf("Enter the student's ID: \n");
+  printf("Enter the student's ID: ");
   scanf("%d", &ID);;
   flush_stdin();
   return ID;
@@ -61,7 +64,7 @@ int askStudentID(void){
 char askStudentGrade(void){
   char grade;
 
-  printf("Enter the student's grade: \n");
+  printf("Enter the student's grade: ");
   scanf("%c", &grade);
   flush_stdin();
 
@@ -94,18 +97,20 @@ char askStudentGrade(void){
 
 void printClassStats(void){
 
+  printf("*STUDENTS*\n");
   int i;
   for(i= 0 ; i < classSize ; i++){
-    printf("\n");
     printf("%s \n", myClass[i].name);
     printf("ID: %d \n", myClass[i].ID);
     printf("Grade: %c \n", myClass[i].grade);
+    printf("\n");
   }
-  printf("\n");
+  printf("GRADE DISTRIBUTION \n");
   printf("Number of As: %d \n", numberAs);
   printf("Number of Bs: %d \n", numberBs);
   printf("Number of Cs: %d \n", numberCs);
   printf("Number of Ds: %d \n", numberDs);
   printf("Number of Fs: %d \n", numberFs);
+  printf("\n");
 
 };
