@@ -73,19 +73,19 @@ char askStudentGrade(void){
 
   switch(grade){
   case 'A':
-    numberAs++;
+    grades[0]++;
     break;
   case 'B':
-    numberBs++;
+    grades[1]++;
     break;
   case 'C':
-    numberCs++;
+    grades[2]++;
     break;
   case 'D':
-    numberDs++;
+    grades[3]++;
     break;
   case 'F':
-    numberFs++;
+    grades[4]++;
     break;
   default:
     printf("Not a real grade try again");
@@ -109,20 +109,19 @@ void printClassStats(void){
     printf("\n");
   }
   printf("GRADE DISTRIBUTION \n");
-  printf("Number of As: %d \n", numberAs);
-  printf("Number of Bs: %d \n", numberBs);
-  printf("Number of Cs: %d \n", numberCs);
-  printf("Number of Ds: %d \n", numberDs);
-  printf("Number of Fs: %d \n", numberFs);
+  printf("Number of As: %d \n", grades[0]);
+  printf("Number of Bs: %d \n", grades[1]);
+  printf("Number of Cs: %d \n", grades[2]);
+  printf("Number of Ds: %d \n", grades[3]);
+  printf("Number of Fs: %d \n", grades[4]);
   resetGrades();
   printf("\n");
 
 };
 
 void resetGrades(void){
-  numberAs = 0;
-  numberBs = 0;
-  numberCs = 0;
-  numberDs = 0;
-  numberFs = 0;
+  int i;
+  for( i=0 ; i< NUM_GRADES ; i++){
+    grades[i] = 0;
+  }
 };

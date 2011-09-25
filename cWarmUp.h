@@ -29,6 +29,7 @@ enter "Dani McAvoy" to the database.
 #include <string.h>
 
 #define MAX_LENGTH_NAME 16
+#define NUM_GRADES 5
 
 // A student consists of a name, ID and grade.
 struct student{
@@ -46,11 +47,7 @@ struct student *myClass;
 int classSize = -1;
 
 // Which keep track of the number of each grade
-int numberAs = 0;
-int numberBs = 0;
-int numberCs = 0;
-int numberDs = 0;
-int numberFs = 0;
+int grades[NUM_GRADES] = {0};
 
 // Prints the welcome message
 void welcome(void);
