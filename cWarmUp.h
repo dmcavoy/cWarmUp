@@ -45,6 +45,7 @@ struct student{
 // the user inputs it.
 int classSize = -1;
 
+
 //*ARRAYS*
 
 // Array of students.  Size is decided by user at
@@ -56,6 +57,7 @@ int gradeAmount[NUM_GRADES] = {0};
 
 // Keeps track of the different grades
 char grades[NUM_GRADES] = { 'A', 'B', 'C', 'D', 'F'};
+
 
 //*FUNCTIONS*
 
