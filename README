@@ -1,1 +1,27 @@
-Operating Systems First Project
+Danielle McAvoy
+September 26th 2011
+C Warm Up
+
+This class was created for C practice.  It is a very simple
+database which keeps track of a class of students. A user
+answers a bunch of prompts to enter their class and then
+gets a number of statistics at the end.
+
+The user first gives the size of the class.  Then the
+program creates an array of students, which the user
+fills in one by one. Each student has an ID, name and grade.
+Once all the students have been
+entered the information of all the students plus the
+grade distribution prints out.
+
+Important: The program will only read one name for a student.
+You can't enter someones full name.  For example you can enter
+"Dani" but if you enter "Dani McAvoy" it will only read the Dani.
+
+Also the program will only exit if you type 0 for the number
+of students. Typing 0 anywhere else will not exit the program.
+
+*RUNNING THE PROGRAM*
+To run the program run make inside the folder cWarmUp and then that
+will create a fill named GradeBook.  The command ./GradeBook will 
+start the program.

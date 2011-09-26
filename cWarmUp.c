@@ -1,10 +1,13 @@
 /*
 The implemenation of the class database.
+Contains the functions which create fill and free the
+array of students.
  */
 
 #include "cWarmUp.h"
 
 // Runs through filling the class "database" with information
+// Exits when classSize is 0
 int main (void){
   welcome();
   while(classSize){
