@@ -71,7 +71,7 @@ void fillStudentArray(int classSize);
 // Gets the student information from the user
 void askStudentName(char* name);
 char askStudentGrade(void);
-int askStudentID(void);
+int askStudentID();
 
 // Prints information on every student and
 // then class statistics on grades

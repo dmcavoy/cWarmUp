@@ -64,16 +64,19 @@ void askStudentName(char* name){
 int askStudentID(void){
   int ID;
   printf("Enter the student's ID: ");
-  scanf("%d", &ID);;
+  scanf("%d", &ID);
   flush_stdin();
   return ID;
 };
+
 char askStudentGrade(void){
+
   char grade;
 
   printf("Enter the student's grade: ");
   scanf("%c", &grade);
   flush_stdin();
+
   int i;
   for (i=0; i < NUM_GRADES; i++){
     if (grade == grades[i]){
