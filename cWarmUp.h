@@ -17,8 +17,11 @@ Important: The program will only read one name for a student.
 You can't enter someones full name.  For example you can enter
 "Dani" but if you enter "Dani McAvoy" it will only read the Dani.
 
-Also the program will only exit if you type 0 for the number
+The program will only exit if you type 0 for the number
 of students. Typing 0 anywhere else will not exit the program.
+
+Also the program will change any input to the ID to a number if it
+is not already a number.
 
 
 @author Danielle McAvoy
