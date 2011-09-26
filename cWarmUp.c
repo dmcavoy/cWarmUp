@@ -22,6 +22,7 @@ int main (void){
 void welcome(void){
   printf("Welcome. This program is to help you keep track of all your students. \n");
   printf("Just follow the prompts! \n");
+  printf("If you wish to exit type 0 for the number of students. \n");
 };
 
 
@@ -33,7 +34,7 @@ void flush_stdin() {
 int askClassSize(void){
   int classNumber;
   printf("How many students are in this class? \n");
-  printf("Enter the number of students: ");
+  printf("Enter the number of students (or 0 to exit): ");
   scanf("%d", &classNumber);
   printf("\n");
   flush_stdin();
@@ -70,29 +71,17 @@ char askStudentGrade(void){
   printf("Enter the student's grade: ");
   scanf("%c", &grade);
   flush_stdin();
-
-  switch(grade){
-  case 'A':
-    grades[0]++;
-    break;
-  case 'B':
-    grades[1]++;
-    break;
-  case 'C':
-    grades[2]++;
-    break;
-  case 'D':
-    grades[3]++;
-    break;
-  case 'F':
-    grades[4]++;
-    break;
-  default:
-    printf("Not a real grade try again");
-    printf("\n");
-    grade = askStudentGrade();
-    break;
+  int i;
+  for (i=0; i < NUM_GRADES; i++){
+    if (grade == grades[i]){
+      gradeAmount[i]++;
+      return grade;
+    }
   }
+
+  printf("Not a real grade try again");
+  printf("\n");
+  grade = askStudentGrade();
 
   return grade;
 
@@ -108,12 +97,13 @@ void printClassStats(void){
     printf("Grade: %c \n", myClass[i].grade);
     printf("\n");
   }
+
   printf("GRADE DISTRIBUTION \n");
-  printf("Number of As: %d \n", grades[0]);
-  printf("Number of Bs: %d \n", grades[1]);
-  printf("Number of Cs: %d \n", grades[2]);
-  printf("Number of Ds: %d \n", grades[3]);
-  printf("Number of Fs: %d \n", grades[4]);
+  int k, j;
+  for ( k= 0, j=0; k < NUM_GRADES ; k++, j++){
+    printf("Number of %cs: %d \n", grades[k], gradeAmount[j]);
+  }
+
   resetGrades();
   printf("\n");
 
@@ -122,6 +112,6 @@ void printClassStats(void){
 void resetGrades(void){
   int i;
   for( i=0 ; i< NUM_GRADES ; i++){
-    grades[i] = 0;
+    gradeAmount[i] = 0;
   }
 };

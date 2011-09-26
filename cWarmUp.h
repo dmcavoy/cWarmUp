@@ -8,20 +8,23 @@ gets a number of statistics at the end.
 
 The user first gives the size of the class.  Then the
 program creates an array of students, which the user
-fills in one by one.  Once all the students have been
+fills in one by one. Each student has an ID, name and grade.
+Once all the students have been
 entered the information of all the students plus the
-number of each grade prints out.
+grade distribution prints out.
 
-The program will only read one name. You can't enter someones
-full name.  For example you can enter "Dani" but you can not
-enter "Dani McAvoy" to the database.
+Important: The program will only read one name for a student.
+You can't enter someones full name.  For example you can enter
+"Dani" but if you enter "Dani McAvoy" it will only read the Dani.
+
+Also the program will only exit if you type 0 for the number
+of students. Typing 0 anywhere else will not exit the program.
 
 
 @author Danielle McAvoy
 @date September 26 2011
 
  */
-
 
 
 #include <stdio.h>
@@ -38,16 +41,23 @@ struct student{
     char grade;
 };
 
-// Array of students.  Size is decided by user at
-// at run time.
-struct student *myClass;
-
 // Variable to hold the size of the class when
 // the user inputs it.
 int classSize = -1;
 
+//*ARRAYS*
+
+// Array of students.  Size is decided by user at
+// at run time.
+struct student *myClass;
+
 // Which keep track of the number of each grade
-int grades[NUM_GRADES] = {0};
+int gradeAmount[NUM_GRADES] = {0};
+
+// Keeps track of the different grades
+char grades[NUM_GRADES] = { 'A', 'B', 'C', 'D', 'F'};
+
+//*FUNCTIONS*
 
 // Prints the welcome message
 void welcome(void);
@@ -67,6 +77,7 @@ int askStudentID(void);
 // then class statistics on grades
 void printClassStats(void);
 
+// Resets all the values for grades counts to 0
 void resetGrades(void);
 
 // Cleans up user input after scanf runs
